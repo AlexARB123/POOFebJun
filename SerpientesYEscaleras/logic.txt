@@ -1,0 +1,15 @@
+Voy a crear una clase Board que va a guardar toda la informacion de los "Tiles" que voy a tener.
+Solo tendra un constructor por default que llevara a la creacion por default. Le dara al usuario dos opciones
+    a) Tablero default
+    b) Tablero generado por programa
+
+La clase Tile va a ser clase hija de dos clases diferentes.
+    SNAKE:
+        Atributos:
+            (int) SpacesLess
+    CHUTE:
+        Atributos:
+            (int) SpacesMore
+
+En su constructor, se va a definir cuantos espacios retrocede y cuantos avanza. Por default, este valor es igual a 0 para ambas
+
