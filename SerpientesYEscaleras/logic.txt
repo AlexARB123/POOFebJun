@@ -7,9 +7,17 @@ La clase Tile va a ser clase hija de dos clases diferentes.
     SNAKE:
         Atributos:
             (int) SpacesLess
-    CHUTE:
+        Metodos:
+            int FallDown(int _currTile) hace la operacion
+    LADDER:
         Atributos:
             (int) SpacesMore
+            int MoveUp(int _currTile) hace la operacion
+    En su constructor, se va a definir cuantos espacios retrocede y cuantos avanza. 
+    Por default, este valor es igual a 0 para ambas
 
-En su constructor, se va a definir cuantos espacios retrocede y cuantos avanza. Por default, este valor es igual a 0 para ambas
+El constructor de Tile tomara como inputs (int _ID, int modifTiles) y creara un tile ya sabiendo si es serpiente o escalera
 
+Una clase GameManager que toma clases Player y Board y maneja el flujo del juego tomando en cuenta los turnos
+
+En el main se hace un loop del juego
