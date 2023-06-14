@@ -1,6 +1,3 @@
-#ifndef EPISODE_H
-#define EPISODE_H
-
 #include <iostream>
 #include "Video.h"
 #include "Episode.h"
@@ -12,12 +9,16 @@ Episode :: Episode(){
     rating = 0;
 }
 
-Episode :: Episode(int i, int d, string name, string g, int _rat){
+Episode :: Episode(int i, int d, string name, string g, int _rat, int n){
     ID = i;
     duration = d;
     FileName = name;
     Genero = g;
     rating = _rat;
+    episodeNum = n;
 }
 
-#endif
+void Episode :: displayInfo(){
+    cout << "Nombre: " << FileName << "\t Duracion: " << duration << endl;
+    cout << "Genero: " << Genero << "\tCalificacion: " << rating << endl;
+}

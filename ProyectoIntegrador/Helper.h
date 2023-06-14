@@ -9,19 +9,22 @@
 #include "Season.h"
 #include "Series.h"
 #include "Movie.h"
+#include <vector>
 #include <fstream>
 #include <string>
 
 using namespace std;
 
 class Helper{
-    private:
-        int ID; // For reference only
     public:
         Helper(); //Only constructor, this class has no attributes. It's only use is to call functions
+        string removeChar(char,string);
+        vector<string> separateString(char,string);
         vector<string> readFile(string);
-        vector<Video> filterMovies(vector<string>);
-        vector<Series> Seasons(ifstream);
+        bool compareTwoEpisodes(Episode, Episode); // Episodes in chronological order
+        bool compareTwoSeasons(Season,Season); // Season in chronological order
+        vector<Movie> filterMovies(vector<string>);
+        vector<Series> filterSeries(vector<string>);
         vector<Episode> sortByEpisode(Season);
         vector<Season> sortBySeason(Series);
 

@@ -10,20 +10,19 @@ using namespace std;
 class Season{
     public:
         Season();
-        Season(vector<Episode>, string, int, float);
+        Season(vector<Episode>, string, int);
+        Season(string, int);
         void SeriesInfo();
-        float getRatings();
-        void operator+(Episode);
+        void addEpisode(Episode);
         Episode getEpisode(int);
         int getSeasonNumber();
         string getSeriesName();
-        float getSeasonRatings();
+        vector<Episode> getEpisodes();
 
     private:
         string SeriesName;
         vector<Episode> episodes;
         int seasonNum;
-        float rating;
 };
 
 #endif

@@ -11,14 +11,14 @@ using namespace std;
 class Series{
     private:
         string name;
-        float ratings;
         vector<Season> seasons;
     public:
         Series();
-        Series(string,float,vector<Season>);
+        Series(string,vector<Season>);
+        Series(string);
+        vector<Season> getSeasons();
         void AddSeason(Season);
         void displayInfo();
-        float getRatings();
         string getName();
 };
 

@@ -16,3 +16,10 @@ Movie :: Movie(int i, int d, string name, string g, int _rat){
     Genero = g;
     rating = _rat;
 }
+
+void Movie :: displayInfo(){
+    cout << "----------------------------------------------" << endl;
+    cout << "Nombre: " << FileName << "\t Duracion: " << duration << endl;
+    cout << "Genero: " << Genero << "\t Calificacion: " << rating << endl;
+    cout << "----------------------------------------------" << endl;
+}

@@ -7,19 +7,26 @@ using namespace std;
 Season :: Season(){
     Episode e;
     episodes.push_back(e);
-    rating = 0;
     seasonNum = 0;
     SeriesName = "NULL";
 }
 
-Season :: Season(vector<Episode> e, string name, int num, float rat){
+Season :: Season(vector<Episode> e, string name, int num){
     episodes = e;
     SeriesName = name;
     seasonNum = num;
-    rating = rat;
+
 }
 
-void Season :: operator+(Episode e){
+Season :: Season(string n, int num){
+    vector<Episode> e;
+    episodes = e;
+    SeriesName = n;
+    seasonNum = num;
+}
+
+void Season :: addEpisode(Episode e){
+    e.displayInfo();
     episodes.push_back(e);
 }
 
@@ -39,6 +46,6 @@ string Season :: getSeriesName(){
     return SeriesName;
 }
 
-float Season :: getSeasonRatings(){
-    return rating;
+vector<Episode> Season :: getEpisodes(){
+    return episodes;
 }
