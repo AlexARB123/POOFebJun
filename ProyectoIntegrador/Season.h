@@ -18,6 +18,7 @@ class Season{
         int getSeasonNumber();
         string getSeriesName();
         vector<Episode> getEpisodes();
+        void setEpisodes(vector<Episode>);
 
     private:
         string SeriesName;

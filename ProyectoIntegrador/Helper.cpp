@@ -7,6 +7,7 @@
 #include "Movie.h"
 #include <fstream>
 #include <string>
+#include <algorithm>
 #include <sstream>
 
 Helper :: Helper(){}
@@ -55,6 +56,37 @@ vector<string> Helper :: readFile(string file){
 
 }
 
+vector<Video*> Helper :: obtainVideos(vector<string> s){
+    
+    vector<Video*> allVids;
+    Helper h;
+    
+    for(int i = 0; i < s.size(); i++)
+    {
+        vector<string> comp = h.separateString(' ', s[i]);
+       
+            int id = stoi(comp[1]);
+            int duration = stoi(comp[4]);
+            string name = removeChar('_', comp[2]);
+            string genero = comp[3];
+            int rat = stoi(comp[5]);
+
+            if(comp[0] == "e"){
+                int episodeNum = stoi(comp[7]);
+                int season = stoi(comp[8]);
+                string serie = removeChar('_',comp[6]); 
+                Video* tmp = new Episode(id,duration,name,genero,rat,episodeNum,serie,season);
+                allVids.push_back(tmp);
+            }
+            else if(comp[0] == "p"){
+                Video* tmp = new Movie(id,duration,name,genero,rat);
+                allVids.push_back(tmp);
+            }
+    }
+
+    return allVids;
+}
+
 vector<Movie> Helper :: filterMovies(vector<string> list){
     
     vector<Movie> allMovies;
@@ -81,7 +113,7 @@ vector<Series> Helper :: filterSeries(vector<string> list){
     
     vector<Series> allSeries;
     Helper h;
-    
+    int count = 0;
     for(int i = 0; i < list.size(); i++){
         
         if(list[i][0] == 'e'){
@@ -128,7 +160,9 @@ vector<Series> Helper :: filterSeries(vector<string> list){
             string genero = thisEp[3];
             int rat = stoi(thisEp[5]);
             int episodeNum = stoi(thisEp[7]);
-            Episode ep(id,duration,name,genero,rat,episodeNum);
+            int season = stoi(thisEp[8]);
+            string SeriesName = removeChar('_',thisEp[6]);
+            Episode ep(id,duration,name,genero,rat,episodeNum,SeriesName,season);
            
             // Creates if not existent
             if(!itExists){
@@ -137,11 +171,15 @@ vector<Series> Helper :: filterSeries(vector<string> list){
                 Season s(temp, allSeries[SeriesIndex].getName(), stoi(thisEp[8]));
                 allSeries[SeriesIndex].AddSeason(s);
             }
+            
             else{
-                allSeries[SeriesIndex].getSeasons()[SeasonIndex].addEpisode(ep);
+                vector<Season> TMP = allSeries[SeriesIndex].getSeasons();
+                vector<Episode> tmp = TMP[SeasonIndex].getEpisodes();
+                tmp.push_back(ep);
+                TMP[SeasonIndex].setEpisodes(tmp);
+                allSeries[SeriesIndex].setSeasons(TMP);
             }
             
-               
         }
     }
     return allSeries;

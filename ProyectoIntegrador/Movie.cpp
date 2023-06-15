@@ -9,12 +9,17 @@ Movie :: Movie(){
     rating = 0;
 }
 
+string Movie :: getGenero(){
+    return Genero;
+}
+int Movie :: getRating(){return rating;}
 Movie :: Movie(int i, int d, string name, string g, int _rat){
     ID = i;
     duration = d;
     FileName = name;
     Genero = g;
     rating = _rat;
+    isEpisode = true;
 }
 
 void Movie :: displayInfo(){
@@ -23,3 +28,7 @@ void Movie :: displayInfo(){
     cout << "Genero: " << Genero << "\t Calificacion: " << rating << endl;
     cout << "----------------------------------------------" << endl;
 }
+
+string Movie :: getSeriesName(){return " ";}
+
+bool Movie :: isItEpisode(){return false;}

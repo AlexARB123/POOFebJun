@@ -12,6 +12,7 @@
 #include <vector>
 #include <fstream>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -19,14 +20,11 @@ class Helper{
     public:
         Helper(); //Only constructor, this class has no attributes. It's only use is to call functions
         string removeChar(char,string);
+        vector<Video*> obtainVideos(vector<string>);
         vector<string> separateString(char,string);
         vector<string> readFile(string);
-        bool compareTwoEpisodes(Episode, Episode); // Episodes in chronological order
-        bool compareTwoSeasons(Season,Season); // Season in chronological order
         vector<Movie> filterMovies(vector<string>);
         vector<Series> filterSeries(vector<string>);
-        vector<Episode> sortByEpisode(Season);
-        vector<Season> sortBySeason(Series);
 
 };
 

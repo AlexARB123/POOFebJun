@@ -10,6 +10,10 @@ class Movie : public Video{
         Movie();
         Movie(int, int, string, string, int);
         void displayInfo();
+        int getRating();
+        string getGenero();
+        string getSeriesName();
+        bool isItEpisode();
 };
 
 #endif

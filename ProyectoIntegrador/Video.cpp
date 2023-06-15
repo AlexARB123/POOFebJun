@@ -7,15 +7,19 @@ Video :: Video(){
     FileName = "NA";
 }
 
-Video :: Video(int _duration, int id, string _FileName, string g){
+Video :: Video(int _duration, int id, string _FileName, string g,int rat,bool ep){
     duration = _duration;
     FileName = _FileName;
     Genero = g;
     ID = id;
+    rating = rat;
+    isEpisode = ep;
 }
 
+int Video :: getRating(){return rating;}
+
 void Video:: displayInfo(){
-    cout << "Duration: " << duration << " seconds" << endl;
+    cout << "Duration: " << duration << " minutes" << endl;
     cout << "File Name: " << FileName << endl;
 }
 int Video:: getDuration(){
@@ -46,4 +50,14 @@ int Video :: getID(){
 
 void Video :: setID(int id){
     ID = id;
+}
+
+bool Video :: isItEpisode(){
+    return false;
+}
+
+string Video :: getSeriesName(){return " ";}
+
+void Video :: setRating(int rat){
+    rating = rat;
 }

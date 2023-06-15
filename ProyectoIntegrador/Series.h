@@ -20,6 +20,7 @@ class Series{
         void AddSeason(Season);
         void displayInfo();
         string getName();
+        void setSeasons(vector<Season>);
 };
 
 #endif

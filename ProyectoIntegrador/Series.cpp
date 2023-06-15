@@ -30,3 +30,7 @@ void Series :: AddSeason(Season s){
 vector<Season> Series :: getSeasons(){return seasons;}
 
 string Series :: getName(){return name;}
+
+void Series :: setSeasons(vector<Season> s){
+    seasons = s;
+}

@@ -26,8 +26,8 @@ Season :: Season(string n, int num){
 }
 
 void Season :: addEpisode(Episode e){
-    e.displayInfo();
     episodes.push_back(e);
+    cout << "FYI::" << episodes.size();
 }
 
 Episode Season :: getEpisode(int episodeIndex){
@@ -48,4 +48,8 @@ string Season :: getSeriesName(){
 
 vector<Episode> Season :: getEpisodes(){
     return episodes;
+}
+
+void Season :: setEpisodes(vector<Episode> eps){
+    episodes = eps;
 }

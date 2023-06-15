@@ -7,18 +7,21 @@ class Video{
     
     public:
         Video();
-        Video(int,int, string,string);
+        Video(int,int, string,string,int,bool);
         virtual void displayInfo();
         void AssignValues(Video);
         int getDuration();
         void setDuration();
         string getFileName();
         void setFileName(string);
-        void setGenero(string);
+        virtual void setGenero(string);
         string getGenero();
         void setID(int);
         int getID();
-        void getRating();
+        virtual int getRating();
+        virtual string getSeriesName();
+        virtual bool isItEpisode();
+        void setRating(int);
         
     protected:
         int ID;
@@ -26,6 +29,7 @@ class Video{
         string FileName;
         string Genero;
         int rating;
+        bool isEpisode;
 
 };
 
